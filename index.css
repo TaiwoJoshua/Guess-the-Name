@@ -14,6 +14,7 @@
     justify-content: center;
     background: url(./jeremy-thomas-E0AHdsENmDg-unsplash.jpg) center no-repeat;
     background-size: cover;
+    position: absolute;
 }
 .bodyw{
     width: 800px;

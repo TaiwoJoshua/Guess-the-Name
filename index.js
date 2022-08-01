@@ -163,6 +163,7 @@ $(document).ready(function(){
                                     }
                                     $("#winner").fadeIn(4000, function(){
                                         $(document).click(function(){
+                                            stopConfetti();
                                             $("#winner").fadeOut(2000, function(){
                                                 $("#gover").show(function(){
                                                     $("#gover").animate({opacity: '1'}, 5000)
@@ -170,6 +171,8 @@ $(document).ready(function(){
                                             })
                                         })
                                     })
+                                    startConfetti();
+                                    $(".pagew").css("zIndex", -1)
                                     $(".special").fadeOut(2000);
                                 }
                             }
