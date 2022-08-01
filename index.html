@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="./jquery.js"></script>
+    <title>Guess the Name</title>
+</head>
+<body>
+    <div class="pagew">
+        <div class="bodyw">
+            <h1 class="welcome none" id="tjg">TeeJay Games</h1>
+            <h1 class="welcome none" id="present">Presents</h1>
+            <h1 class="welcome none" id="game">Guess The Name</h1>
+            <div id="open" class="none">
+                <h1 id="welcome">Welcome</h1>
+                <div><p class="none" id="any">Tap anywhere to continue!!!</p></div>
+            </div>
+            <div id="playerw" class="none">
+                <p>Please select the number of players</p>
+                <center>
+                    <input type="radio" name="player" id="one" value="1" label="one" checked>
+                    <input type="radio" name="player" id="two" value="2" label="two"><br>
+                    <input type="radio" name="player" id="three" value="3" label="three">
+                    <input type="radio" name="player" id="four" value="4" label="four">
+                </center>
+            </div>
+            <div id="playerwr" class="none">
+                <p>Input your names</p>
+                <form>
+                    <span id="players">
+
+                    </span>
+                    <div>
+                        <input type="submit" value="submit" id="submit">
+                        <div id="your" style="display: none; margin-top: 5px;">please input your name(s)</div>
+                    </div>
+                </form>
+            </div>
+            <div class="special none">
+                <div id="namew">
+                    <div class="name">Name:</div> 
+                </div>
+                <div id="turnw">
+                    <div id="turn"></div>
+                    <div>
+                        <label>Guess a Letter</label>
+                        <input type="text" maxlength="1" id="guess">
+                    </div>
+                    <div>
+                        <button id="check">Submit</button>
+                        <button id="pass">Pass</button>
+                    </div>
+                    <div id="wrong" class="none">
+                        <i>Oops, That is not a letter in the name</i><br>
+                        <i>Better luck next time</i>
+                    </div>
+                    <div id="right" class="none">
+                        <i>Hurray!!! You guessed right</i>
+                    </div>
+                    <div id="empty" class="none">
+                        <i>Please input a letter first</i>
+                    </div>
+                    <div id="exist" class="none">
+                        <i>Letter has being picked before, Try again</i>
+                    </div>
+                    <div>
+                        <button id="continue" class="none">Continue</button>
+                    </div>
+                </div>
+                <div id="scorew">
+                    <div>
+                        <strong id="hello">
+                            Players
+                        </strong>
+                        <strong>
+                            Scores
+                        </strong>
+                    </div>
+                    <div  id="player1" class="none">
+                        <strong class="pname">
+                            Player 1
+                        </strong>
+                        <div id="score1">
+                            0
+                        </div>
+                    </div>
+                    <div id="player2" class="none">
+                        <strong class="pname">
+                            Player 2
+                        </strong>
+                        <div id="score2">
+                            0
+                        </div>
+                    </div>
+                    <div id="player3" class="none">
+                        <strong class="pname">
+                            Player 3
+                        </strong>
+                        <div id="score3">
+                            0
+                        </div>
+                    </div>
+                    <div id="player4" class="none">
+                        <strong class="pname">
+                            Player 4
+                        </strong>
+                        <div id="score4">
+                            0
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="winner" class="none">
+
+            </div>
+            <div id="gover" class="none">
+                GAME OVER
+            </div>
+        </div>
+    </div>
+    <script src="./names.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
