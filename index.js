@@ -49,6 +49,8 @@ $(document).ready(function(){
     });
     $("#submit").click(function(event){
         event.preventDefault();
+    })
+    $("#submit").one('click', function(){
         let name1 = $("#name1").val();
         let name2 = $("#name2").val();
         let name3 = $("#name3").val();
@@ -64,6 +66,7 @@ $(document).ready(function(){
                 m = Math.floor(Math.random() * namelist);
                 const n = parseInt(nplayer);
                 let names = listed[m].toUpperCase();
+                console.log(names);
                 let l = names.length;
                 let pname = $(".pname");
                 for(i = 0; i < l; i++){
@@ -93,7 +96,8 @@ $(document).ready(function(){
                 }
                 $(".special").fadeIn(3000, function(){
                     let pturn = 0;
-                    $("#check").click(function(){
+                    $("#check").click(function(e){
+                        e.preventDefault();
                         let letter = $("#guess").val().toUpperCase();
                         if(letter != ""){
                             let x = $(".divs");
@@ -190,6 +194,7 @@ $(document).ready(function(){
                         $("#continue").hide();
                         $("#check").show();
                         $("#pass").show();
+                        $("#guess").val('');
                         pturn++;
                         if(pturn === n){
                             pturn = 0;

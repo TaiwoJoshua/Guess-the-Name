@@ -42,18 +42,20 @@
             </div>
             <div class="special none">
                 <div id="namew">
-                    <div class="name">Name:</div> 
+                    <div class="name">Name:</div>
                 </div>
                 <div id="turnw">
                     <div id="turn"></div>
-                    <div>
-                        <label>Guess a Letter</label>
-                        <input type="text" maxlength="1" id="guess">
-                    </div>
-                    <div>
-                        <button id="check">Submit</button>
-                        <button id="pass">Pass</button>
-                    </div>
+                    <form>
+                        <div>
+                            <label>Guess a Letter</label>
+                            <input type="text" maxlength="1" id="guess">
+                        </div>
+                        <div id="form">
+                            <input type="submit" value="Submit" id="check">
+                            <button id="pass">Pass</button>
+                        </div>
+                    </form>
                     <div id="wrong" class="none">
                         <i>Oops, That is not a letter in the name</i><br>
                         <i>Better luck next time</i>
@@ -72,7 +74,7 @@
                     </div>
                 </div>
                 <div id="scorew">
-                    <div>
+                    <div id="flex">
                         <strong id="hello">
                             Players
                         </strong>

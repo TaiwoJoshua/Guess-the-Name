@@ -1,16 +1,16 @@
-var maxParticleCount = 200; //set max confetti count
-var particleSpeed = 2; //set the particle animation speed
-var startConfetti; //call to start confetti animation
-var stopConfetti; //call to stop adding confetti
-var toggleConfetti; //call to start or stop the confetti animation depending on whether it's already running
-var removeConfetti; //call to stop the confetti animation and remove all confetti immediately
+var maxParticleCount = 200;
+var particleSpeed = 2;
+var startConfetti;
+var stopConfetti;
+var toggleConfetti;
+var removeConfetti;
 var body = document.body;
 var html = document.documentElement;
-var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-window.addEventListener("resize", function() {
-	width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
-	height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+var width = Math.max(body.offsetWidth, html.clientWidth, html.offsetWidth);
+var height = Math.max(body.offsetHeight, html.clientHeight, html.offsetHeight);
+window.addEventListener("resize", function(){
+	width = Math.max(body.offsetWidth, html.clientWidth, html.offsetWidth);
+	height = Math.max(body.offsetHeight, html.clientHeight, html.offsetHeight);
 });
 
 (function() {
