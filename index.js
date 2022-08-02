@@ -66,7 +66,6 @@ $(document).ready(function(){
                 m = Math.floor(Math.random() * namelist);
                 const n = parseInt(nplayer);
                 let names = listed[m].toUpperCase();
-                console.log(names);
                 let l = names.length;
                 let pname = $(".pname");
                 for(i = 0; i < l; i++){

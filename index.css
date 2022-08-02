@@ -285,7 +285,7 @@ button:hover, #submit:hover{
 }
 @media screen and (max-width: 800px) and (min-width: 320px){
     .bodyw{
-        width: 95%;
+        width: 98%;
     }
     #playerw{
         width: 100%;
@@ -303,9 +303,12 @@ button:hover, #submit:hover{
         width: 150px;
     }
     #gover{
-        font-size: 55px;
+        font-size: 50px;
     }
     #playerw center{
         width: auto;
+    }
+    #winner{
+        font-size: 40px;
     }
 }
