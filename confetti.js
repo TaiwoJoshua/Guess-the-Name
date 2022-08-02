@@ -1,9 +1,13 @@
-var maxParticleCount = 150; //set max confetti count
+var maxParticleCount = 200; //set max confetti count
 var particleSpeed = 2; //set the particle animation speed
 var startConfetti; //call to start confetti animation
 var stopConfetti; //call to stop adding confetti
 var toggleConfetti; //call to start or stop the confetti animation depending on whether it's already running
 var removeConfetti; //call to stop the confetti animation and remove all confetti immediately
+var body = document.body;
+var html = document.documentElement;
+var width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
 (function() {
 	startConfetti = startConfettiInner;
@@ -28,8 +32,6 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 	}
 
 	function startConfettiInner() {
-		var width = window.innerWidth;
-		var height = window.innerHeight;
 		window.requestAnimFrame = (function() {
 			return window.requestAnimationFrame ||
 				window.webkitRequestAnimationFrame ||
@@ -49,8 +51,8 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 			canvas.width = width;
 			canvas.height = height;
 			window.addEventListener("resize", function() {
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
+				canvas.width = width;
+				canvas.height = height;
 			}, true);
 		}
 		var context = canvas.getContext("2d");
@@ -59,7 +61,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 		streamingConfetti = true;
 		if (animationTimer === null) {
 			(function runAnimation() {
-				context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+				context.clearRect(0, 0, width, height);
 				if (particles.length === 0)
 					animationTimer = null;
 				else {
@@ -103,8 +105,6 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 	}
 
 	function updateParticles() {
-		var width = window.innerWidth;
-		var height = window.innerHeight;
 		var particle;
 		waveAngle += 0.01;
 		for (var i = 0; i < particles.length; i++) {
