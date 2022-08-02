@@ -6,11 +6,11 @@ var toggleConfetti;
 var removeConfetti;
 var body = document.body;
 var html = document.documentElement;
-var width = Math.max(body.offsetWidth, html.clientWidth, html.offsetWidth);
-var height = Math.max(body.offsetHeight, html.clientHeight, html.offsetHeight);
+var width = html.clientWidth;
+var height = html.clientHeight;
 window.addEventListener("resize", function(){
-	width = Math.max(body.offsetWidth, html.clientWidth, html.offsetWidth);
-	height = Math.max(body.offsetHeight, html.clientHeight, html.offsetHeight);
+	width = html.clientWidth;
+	height = html.clientHeight;
 });
 
 (function() {
