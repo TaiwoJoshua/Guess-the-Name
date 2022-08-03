@@ -311,4 +311,7 @@ button:hover, #submit:hover{
     #winner{
         font-size: 40px;
     }
+    #playerw center input{
+        margin: 10px 20px;
+    }
 }
