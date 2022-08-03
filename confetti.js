@@ -4,11 +4,11 @@ var startConfetti;
 var stopConfetti;
 var toggleConfetti;
 var removeConfetti;
-var width = screen.availWidth;
-var height = screen.availHeight;
+var width = $('.pagew').get(0).scrollWidth;
+var height = $('.pagew').get(0).scrollHeight;
 window.addEventListener("resize", function(){
-	width = screen.availWidth;
-	height = screen.availHeight;
+	width = $('.pagew').get(0).scrollWidth;
+	height = $('.pagew').get(0).scrollHeight;
 });
 
 (function() {
