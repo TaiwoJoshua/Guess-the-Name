@@ -48,7 +48,7 @@
                     <div id="turn"></div>
                         <div>
                             <label>Guess a Letter</label>
-                            <input type="text" maxlength="1" id="guess">
+                            <input type="text" maxlength="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" id="guess">
                         </div>
                         <div id="form">
                             <input type="submit" value="Submit" id="check">
