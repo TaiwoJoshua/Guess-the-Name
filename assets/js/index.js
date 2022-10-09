@@ -238,7 +238,7 @@ $(document).ready(function(){
     $("#submit").click(function(event){
         event.preventDefault();
     })
-    $("#submit").one('click', function(){
+    $("#submit").click(function(){
         let name1 = $("#name1").val();
         let name2 = $("#name2").val();
         let name3 = $("#name3").val();
@@ -246,6 +246,7 @@ $(document).ready(function(){
         if(name1 == "" || name2 == "" || name3 == "" || name4 == ""){
             $("#your").show();
         }else{
+            $("#submit").prop("disabled", true);
             game(name1, name2, name3, name4, nplayer);   
         }
     });
