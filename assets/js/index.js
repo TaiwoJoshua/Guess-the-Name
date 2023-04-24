@@ -1,5 +1,5 @@
-var inputs = {};
 inputs = {};
+name1 = name2 = name3 = name4 = "";
 function game(name1, name2, name3, name4, nplayer){
     score1 = 0;
     score2 = 0;
@@ -12,7 +12,6 @@ function game(name1, name2, name3, name4, nplayer){
     $("#score3").text(score3);
     $("#score4").text(score4);
     $("#playerwr").fadeOut(1000, function(){
-        // let listed = ["Joshua", "Goodness", "Jehovah", "Harvest", "Ayomide", "Olamilekan", "Erioluwa", "Daniel", "Boaz"];
         let players = [name1, name2, name3, name4];
         $("#turn").text(players[0]);
         namelist = listed.length;
@@ -20,7 +19,7 @@ function game(name1, name2, name3, name4, nplayer){
         n = parseInt(nplayer);
         names = listed[m].toUpperCase();
         console.log(names);
-        let l = names.length;
+        var l = names.length;
         let pname = $(".pname");
         for(i = 0; i < l; i++){
             $("#namew").append('<div class="divs"></div>')
@@ -56,36 +55,25 @@ function game(name1, name2, name3, name4, nplayer){
                     let x = $(".divs");
                     let q = 1;
                     let score = 0;
-                    if(inputs[letter] > -1){
+                    console.log(inputs[letter]);
+                    if(inputs[letter] != undefined){
                         $("#exist").show();
-                        $("#right").hide();
-                        $("#wrong").hide();
-                        $("#empty").hide();
+                        $("#right, #wrong, #empty").hide();
                     }else{
                         for(i = 0; i < x.length; i++){
                             me = 0;
                             if(letter === names[i]){
                                 q = 0;
                                 x.eq(i).text(letter.toUpperCase(), score++);
-                                $("#right").show();
-                                $("#continue").show();
-                                $("#check").hide();
-                                $("#pass").hide();
-                                $("#wrong").hide();
-                                $("#empty").hide();
-                                $("#exist").hide();
+                                $("#right, #continue").show();
+                                $("#form, #wrong, #empty, #exist").hide();
                             }else{
                                 score += 0;
                             }
                             if(q === 1){
                                 me = 1;
-                                $("#right").hide();
-                                $("#wrong").show();
-                                $("#check").hide();
-                                $("#pass").hide();
-                                $("#continue").show();
-                                $("#empty").hide();
-                                $("#exist").hide();
+                                $("#form, #right, #exist, #empty").hide();
+                                $("#continue, #wrong").show();
                             }
                         }
                         inputs[letter] = score;
@@ -143,18 +131,13 @@ function game(name1, name2, name3, name4, nplayer){
                     }
                 }else{
                     $("#empty").show();
-                    $("#right").hide();
-                    $("#wrong").hide();
-                    $("#exist").hide();
+                    $("#right, #wrong, #exist").hide();
                 }
             });
             n = parseInt(nplayer);
             $("#continue").click(function(){
-                $("#right").hide();
-                $("#wrong").hide();
-                $("#continue").hide();
-                $("#check").show();
-                $("#pass").show();
+                $("#right, #wrong, #continue").hide();
+                $("#form").show();
                 $("#guess").val('');
                 pturn++;
                 if(pturn === n){
@@ -163,10 +146,7 @@ function game(name1, name2, name3, name4, nplayer){
                 $("#turn").text(players[pturn]);
             });
             $("#pass").click(function(){
-                $("#empty").hide();
-                $("#right").hide();
-                $("#wrong").hide();
-                $("#exist").hide();
+                $("#empty, #right, #wrong, #exist").hide();
                 $("#guess").val('');
                 n = parseInt(nplayer);
                 pturn++;
@@ -177,20 +157,9 @@ function game(name1, name2, name3, name4, nplayer){
             })
         }
         );
-    });
-    $("#again").click(function(){
-        $("#gover").hide();
-        $("#again").hide();
-        $(".divs").remove();
-        // del = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        for(var del in inputs){
-            if(inputs.hasOwnProperty(del)){
-                delete inputs[del];
-            }
-        }
-        game(name1, name2, name3, name4, nplayer);
-    });        
-}
+    });    
+}   
+
 $(document).ready(function(){
     $("#tjg").fadeIn(2000, function(){
         $("#tjg").fadeOut(1000);
@@ -199,9 +168,9 @@ $(document).ready(function(){
             $("#game").fadeIn(2000, function(){
                 $("#game").fadeOut(1000);
                 $("#open").fadeIn(2000, function(){
-                    $('#any').show();
+                    $("#any").show();
                     setInterval(function(){$("#any").fadeToggle()},500);
-                    $(document).one('click', function(){
+                    $(document).one("click", function(){
                         $("#open").fadeOut(1000, function(){
                             $("#playerw").fadeIn(2000);
                         });
@@ -233,16 +202,15 @@ $(document).ready(function(){
                 $("#playerwr").fadeIn(1000);
             }); 
         }
-        
     });
     $("#submit").click(function(event){
         event.preventDefault();
     })
     $("#submit").click(function(){
-        let name1 = $("#name1").val();
-        let name2 = $("#name2").val();
-        let name3 = $("#name3").val();
-        let name4 = $("#name4").val(); 
+        name1 = $("#name1").val();
+        name2 = $("#name2").val();
+        name3 = $("#name3").val();
+        name4 = $("#name4").val(); 
         if(name1 == "" || name2 == "" || name3 == "" || name4 == ""){
             $("#your").show();
         }else{
@@ -251,3 +219,15 @@ $(document).ready(function(){
         }
     });
 })
+
+$("#again").click(function(){
+    $("#gover, #again, .none").hide();
+    $("#gover, #again").css("opacity", 0);
+    $("#form").show();
+    $(".divs").remove();
+    $("#guess").val("");
+    for(const key in inputs){
+        delete inputs[key];
+    }
+    game(name1, name2, name3, name4, nplayer);
+}); 
