@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="icon" href="./assets/img/simone-secci-49uySSA678U-unsplash.jpg">
-    <script src="./assets/js/jquery.js"></script>
     <title>Guess the Name</title>
 </head>
 <body>
@@ -35,7 +34,7 @@
 
                     </span>
                     <div>
-                        <input type="submit" value="submit" id="submit">
+                        <button id="submit">submit</button>
                         <div id="your" style="display: none; margin-top: 5px;">please input your name(s)</div>
                     </div>
                 </form>
@@ -51,8 +50,8 @@
                             <input type="text" maxlength="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" id="guess">
                         </div>
                         <div id="form">
-                            <input type="submit" value="Submit" id="check">
-                            <button id="pass">Pass</button>
+                            <button id="check" class="btn">Submit</button>
+                            <button id="pass" class="btn">Pass</button>
                         </div>
                     <div id="wrong" class="none">
                         <i>Oops, That is not a letter in the name</i><br>
@@ -68,7 +67,7 @@
                         <i>Letter has being picked before, Try again</i>
                     </div>
                     <div>
-                        <button id="continue" class="none">Continue</button>
+                        <button id="continue" class="none btn">Continue</button>
                     </div>
                 </div>
                 <div id="scorew">
@@ -122,12 +121,14 @@
                     GAME OVER
                 </div>
                 <center>
-                    <button id="again" class="none">Play Again</button>
+                    <button class="none btn" id="again">Play Again</button>
+                    <button onclick="window.location.reload();" class="none btn">New Game</button>
                 </center>
             </div>
         </div>
         <p id="maintain">This project was built and is being maintained by <a href="https://taiwojoshua.netlify.app/" target="_blank">Taiwo Joshua</a></p>
     </div>
+    <script src="./assets/js/jquery.js"></script>
     <script src="./assets/js/confetti.js"></script>
     <script src="./assets/js/names.js"></script>
     <script src="./assets/js/index.js"></script>

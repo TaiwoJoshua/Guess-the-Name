@@ -186,7 +186,7 @@ button:hover, #submit:hover{
     align-items: center;
     justify-content: center;
 }
-#check, #pass, #continue, #again{
+.btn{
     font-size: 14px;
     border-radius: 10px;
     color: white;
@@ -195,7 +195,7 @@ button:hover, #submit:hover{
     border: 1px solid white;
     background-color: transparent;
 }
-#again{
+#over>center>button{
     opacity: 0;
 }
 #guess{
@@ -242,7 +242,6 @@ button:hover, #submit:hover{
     font-size: 17px;
 }
 #right{
-    /* color: rgb(128, 255, 0); */
     color: green;
     text-shadow: 1px 1px 1px rgb(128, 255, 0);
     text-align: center;
